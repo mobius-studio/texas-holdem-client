@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "omaha",
+    "texture": "02fd728b-7341-4a19-a416-491070c872fc",
+    "atlas": "",
+    "rect": [
+      96,
+      24,
+      353,
+      442
+    ],
+    "offset": [
+      16.5,
+      11
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "rotated": 0
+  }
+}

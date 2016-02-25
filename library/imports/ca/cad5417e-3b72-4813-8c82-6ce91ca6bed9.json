@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "club_big",
+    "texture": "952a1d08-42cc-4981-97ff-598aa703fbeb",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      55,
+      53
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      55,
+      53
+    ],
+    "rotated": 0
+  }
+}
