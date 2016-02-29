@@ -6,11 +6,9 @@ cc.Class({
 
     properties: {
         id: '',
-        playerName: {
-            default: null,
-            type: cc.Label
-        },
-        
+        playerName: null,
+        gold: null,
+        profileID: null,
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
