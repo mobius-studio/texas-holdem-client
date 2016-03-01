@@ -12,6 +12,4 @@ var HandType = cc.Enum({
     RoyalFlush: -1,     // 皇家同花顺
 });
 
-module.exports = {
-    HandType: HandType,
-}
+module.exports = HandType;

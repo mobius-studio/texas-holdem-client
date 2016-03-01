@@ -1,5 +1,5 @@
-var SuitEnum = require('SuitEnum');
-var PointEnum = require('PointEnum');
+var Suit = require('Suit');
+var Point = require('Point');
 var CardModule = require('CardModule');
 
 cc.Class({
@@ -60,11 +60,11 @@ cc.Class({
         // ...
     },
 
-    render: function(card) {
+    init: function(card) {
         // suit
-        this.suit.spriteFrame = this.suits[card.suit - 1];
+        this.suit.spriteFrame = this.suits[card.suit];
         // point
-        this.point.string = PointEnum[card.point];
+        this.point.string = Point[card.point];
         if (card.isRedSuit) {
             //this.point.node.color = this.redColor;
         } else if(card.isBlackSuit) {
@@ -74,19 +74,20 @@ cc.Class({
         if (card.point > 10) {
             this.contents.spriteFrame = this.faces[card.point - 10 - 1];
         } else {
-            this.contents.spriteFrame = this.contentsSuits[card.suit - 1];
+            this.contents.spriteFrame = this.contentsSuits[card.suit];
         }
     },
 
     /**
      * 翻牌
-     * @param {boolean} - faceUP: true, faceDown: false
+     * @param {boolean} - faceUp: true, faceDown: false
      */
     reveal: function(isFaceUp) {
         this.suit.node.active = isFaceUp;
         this.point.node.active = isFaceUp;
         this.contents.node.active = isFaceUp;
-        this.contents.spriteFrame = isFaceUp ? this.frontBG : this.backBG;
+        var Sprite = this.node.getComponent(cc.Sprite);
+        Sprite.spriteFrame = isFaceUp ? this.frontBG : this.backBG;
     },
 
     // use this for initialization

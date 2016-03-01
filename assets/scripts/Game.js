@@ -1,39 +1,22 @@
+var UserType = require('UserType');
+var Round = require('Round');
 var DeckModule = require('DeckModule');
-var UserTypeEnum = require('UserTypeEnum');
 
-var Game = cc.Class({
+cc.Class({
     extends: cc.Component,
 
     properties: {
-        i: 0,
-        // 底池
-        pot: {
-            default: null,
-            type: cc.Label
-        },
         cardPrefab: {
             default: null,
             type: cc.Prefab
         },
-        userPrefab: {
-            default: null,
-            type: cc.Prefab
-        },
-        testNode: {
-            default: null,
-            type: cc.Node
-        },
-        gameBG: {
-            default: null,
-            type: cc.Sprite
-        },
-        users: {
-            default: [],
-            type: [cc.Node]
-        },
         totalChips: 0,
         numberOfDeck: 1,
         bettingRound: 0,
+        userUI: {
+            default: null,
+            type: cc.Node
+        },
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
@@ -43,32 +26,6 @@ var Game = cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
-    },
-
-    initDealer: function(UserPrefab) {
-        UserPrefab.setUserType(UserTypeEnum.Dealer);
-    },
-
-    initSmallBlind: function() {
-        UserPrefab.setUserType(UserTypeEnum.SmallBlind);
-    },
-
-    initBigBlind: function() {
-        UserPrefab.setUserType(UserTypeEnum.BigBlind);
-    },
-
-    createUsers: function() {
-        for (var i = 0; i < 8; i++) {
-            var userPrefab = cc.instantiate(this.userPrefab);
-            var userNode = this.users[i];
-            userPrefab.parent = userNode;
-            userPrefab.setPosition = cc.p(0, 0);
-            var UserPrefab = userPrefab.getComponent('UserPrefab');
-        }
-    },
-
-    createCards: function() {
-        var card = this.deck.deal();
     },
 
     // 第一轮下注
@@ -91,17 +48,43 @@ var Game = cc.Class({
         
     },
 
-    start: function() {
-        this.deck = new DeckModule(this.numberOfDeck);
-        this.deck.shuffle();
+    // 下注
+    bettingRound: function(round) {
+        switch (round) {
+            case PreFlop:
+                this.preflopBettingRound();
+                break;
+            case Flop:
+                this.flopBettingRound();
+                break;
+            case Third:
+                this.thirdBettingRound();
+                break;
+            case Fourth:
+                this.fourthBettingRound();
+                break;
+            default:
+        }
     },
 
     // use this for initialization
     onLoad: function () {
-        Game.instance = this;
+        this.UserUI = this.userUI.getComponent('UserUI');
+    },
+
+    start: function() {
+        // 初始化用户
+        this.UserUI.init();
         // 初始化一副牌
         this.deck = new DeckModule(this.numberOfDeck);
+        // 洗牌
         this.deck.shuffle();
+        // 第个玩家发两张手牌
+        this.dealHoldCard();
+    },
+
+    dealHoldCard: function() {
+        this.UserUI.deal(this.deck);
     },
 
     addStake: function() {
@@ -121,18 +104,6 @@ var Game = cc.Class({
 
     backToMenu: function() {
         cc.director.loadScene('menu');
-    },
-
-    test: function() {
-        var card = this.deck.deal();
-        console.log(this.i);
-        var cardPrefab = cc.instantiate(this.cardPrefab);
-        cardPrefab.parent = this.testNode;
-        var pos = cc.p(-300 + this.i * 50, -300 + this.i * 50);
-        cardPrefab.setPosition(pos);
-        var cardComponent = cardPrefab.getComponent('CardPrefab');
-        cardComponent.render(card);
-        this.i = this.i + 1;
     },
 
     // called every frame, uncomment this function to activate update callback

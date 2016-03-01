@@ -1,5 +1,5 @@
-var SuitEnum = require('SuitEnum');
-var PointEnum = require('PointEnum');
+var Suit = require('Suit');
+var Point = require('Point');
 
 /**
  * 卡牌对象，表示卡牌的基本属性，不包含游戏逻辑，
@@ -24,29 +24,29 @@ function CardModule (suit, point) {
 		},
 		suitName: {
 		    get: function() {
-		        return SuitEnum[suit];
+		        return Suit[suit];
 		    }
 		},
 		pointName: {
             get: function() {
-                return PointEnum[point];
+                return Point[point];
             }
 		},
         isBlackSuit: {
             get: function() {
-                return suit == SuitEnum.Spade || suit == SuitEnum.Club;
+                return suit == Suit.Spade || suit == Suit.Club;
             }
         },
         isRedSuit: {
             get: function() {
-                return suit == SuitEnum.Heart || suit == SuitEnum.Diamond;
+                return suit == Suit.Heart || suit == Suit.Diamond;
             }
         }
     });
 }
 
 CardModule.prototype.toString = function() {
-    return PointEnum[this.point] + '[' + SuitEnum[this.suit] + ']';
+    return Point[this.point] + '[' + Suit[this.suit] + ']';
 }
 
 module.exports = CardModule;

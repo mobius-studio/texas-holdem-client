@@ -1,14 +1,17 @@
-var CardModule = require('CardModule');
-var HandModule = require('HandModule');
+var Round = require('Round');
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        id: '',
-        playerName: null,
-        gold: null,
-        profileID: null,
+        game: {
+            default: null,
+            type: cc.Node
+        },
+        betButton: {
+            default: null,
+            type: cc.Button
+        }
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
@@ -18,6 +21,12 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
+    },
+
+    bindEvent: function() {
+        this.betButton.on(cc.Node.EventType.TOUCH_START, function(e) {
+            this.game.bettingRound(Round.PreFlop);
+        }, this);
     },
 
     // use this for initialization

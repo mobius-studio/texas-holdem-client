@@ -8,26 +8,29 @@ var CardModule = require('CardModule');
  */
 function DeckModule (numberOfDeck) {
     Object.defineProperties(this, {
-        _numberOfDeck: {
+        numberOfDeck: {
             value: numberOfDeck,
             writable: false
         },
-        _cards: {
+        cards: {
             value: [],
             writable: true
         }
     });
-	for (var i = 1; i <= numberOfDeck; i++) {
-        this.init();
-    }
+    this.init();
 }
 
 DeckModule.prototype.init = function() {
-    for (var s = 1; s <= 4; s++) {
+    for (var i = 0; i < this.numberOfDeck; i++) {
+        this.initDeck();
+    }
+}
+
+DeckModule.prototype.initDeck = function() {
+    for (var s = 0; s < 4; s++) {
         for (var p = 1; p <= 13; p++) {
             var card = new CardModule(s, p);
-            cc.log('init card {}.', card);
-            this._cards.push(card);
+            this.cards.push(card);
         }
     }
 }
@@ -38,7 +41,7 @@ DeckModule.prototype.init = function() {
 * @return {Card}
 */
 DeckModule.prototype.deal = function () {
-    return this._cards.pop();
+    return this.cards.pop();
 };
 
 /**
@@ -46,7 +49,7 @@ DeckModule.prototype.deal = function () {
 * @method shuffle
 */
 DeckModule.prototype.shuffle = function () {
-    shuffleArray(this._cards);
+    shuffleArray(this.cards);
 };
 
 /**

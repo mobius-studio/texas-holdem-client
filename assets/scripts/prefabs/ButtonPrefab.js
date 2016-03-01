@@ -1,14 +1,10 @@
-var CardModule = require('CardModule');
-var HandModule = require('HandModule');
+var ButtonType = require('ButtonType');
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        playerPrefab: {
-            default: null,
-            type: cc.Prefab
-        }
+        
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
@@ -18,6 +14,23 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
+    },
+
+    render: function(buttonType) {
+        switch (buttonType) {
+            case Bet: break;
+            case Raise: break;
+            case Fold: break;
+            case Allin: break;
+            case Call: break;
+            case Check: break;
+            default:
+        }
+    },
+
+    renderButton: function() {
+        var node = new cc.Button();
+        
     },
 
     // use this for initialization

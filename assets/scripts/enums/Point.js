@@ -1,5 +1,5 @@
 // 卡牌号
-var PointEnum = cc.Enum({
+var Point = cc.Enum({
     A: 1,   // ACE
     2: 2,   // 2
     3: 3,   // 3
@@ -15,4 +15,4 @@ var PointEnum = cc.Enum({
     K: 13,  // King (国王)
 });
 
-module.exports = PointEnum;
+module.exports = Point;

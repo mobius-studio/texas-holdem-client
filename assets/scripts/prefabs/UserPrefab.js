@@ -1,4 +1,4 @@
-var UserTypeEnum = require('UserTypeEnum');
+var UserType = require('UserType');
 
 cc.Class({
     extends: cc.Component,
@@ -20,7 +20,7 @@ cc.Class({
             default: null,
             type: cc.Label
         },
-        userType: UserTypeEnum.Normal,
+        userType: UserType.Normal,
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
