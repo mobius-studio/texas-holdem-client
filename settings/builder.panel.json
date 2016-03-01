@@ -1,1 +1,8 @@
-{}
+{
+  "excludeScenes": [],
+  "packageName": "org.cocos2d.texas-holdem-client",
+  "platform": "web-mobile",
+  "startScene": "",
+  "startSceneUuid": "16877658-e121-4756-bdc1-58f961bf7a4b",
+  "title": "texas-holdem-client"
+}

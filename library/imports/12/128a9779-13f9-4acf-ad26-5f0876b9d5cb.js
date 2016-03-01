@@ -1,36 +1,16 @@
-// 花色
 'use strict';
 
-var Suit = cc.Enum({
-    Spade: 1, // 黑桃
-    Heart: 2, // 红桃
-    Club: 3, // 梅花
-    Diamond: 4 });
-// 卡牌号
-// 方块
-var Point = cc.Enum({
-    A: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 8,
-    9: 9,
-    10: 10,
-    J: 11,
-    Q: 12,
-    K: 13
-});
+var SuitEnum = require('SuitEnum');
+var PointEnum = require('PointEnum');
+
 /**
  * 卡牌对象，表示卡牌的基本属性，不包含游戏逻辑，
  * 所有属性只读，全局需要有52个实例（去掉大小王）。
  * @class Card
- * @param {number} suit
- * @param {number} point
+ * @param {Number} suit
+ * @param {Number} point
  */
-function Card(suit, point) {
+function CardModule(suit, point) {
     Object.defineProperties(this, {
         suit: {
             value: suit,
@@ -40,35 +20,35 @@ function Card(suit, point) {
             value: point,
             writable: false
         },
+        id: {
+            value: (suit - 1) * 13 + (point - 1),
+            writable: false
+        },
         suitName: {
             get: function get() {
-                return Suit[this.suit];
+                return SuitEnum[suit];
             }
         },
         pointName: {
             get: function get() {
-                return Point[this.point];
+                return PointEnum[point];
+            }
+        },
+        isBlackSuit: {
+            get: function get() {
+                return suit == SuitEnum.Spade || suit == SuitEnum.Club;
+            }
+        },
+        isRedSuit: {
+            get: function get() {
+                return suit == SuitEnum.Heart || suit == SuitEnum.Diamond;
             }
         }
     });
 }
 
-Card.prototype.toString = function () {
-    return this.suitName + ' ' + this.pointName;
+CardModule.prototype.toString = function () {
+    return PointEnum[this.point] + '[' + SuitEnum[this.suit] + ']';
 };
 
-var cards = [];
-
-(function () {
-    for (var s = 1; s <= 4; s++) {
-        for (var i = 1; i <= 13; i++) {
-            cards.push(new Card(s, i));
-        }
-    }
-})();
-
-module.exports = {
-    Suit: Suit,
-    Point: Point,
-    Card: Card
-};
+module.exports = CardModule;

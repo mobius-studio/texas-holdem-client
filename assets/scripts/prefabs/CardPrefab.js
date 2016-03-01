@@ -6,34 +6,43 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        // 花色
         suit: {
             default: null,
             type: cc.Sprite
         },
+        // 点数
         point: {
             default: null,
             type: cc.Label
         },
+        // 正面图案
         contents: {
             default: null,
             type: cc.Sprite
         },
-        front: {
+        // 正面背景
+        frontBG: {
             default: null,
             type: cc.SpriteFrame
         },
-        back: {
+        // 反面背景
+        backBG: {
             default: null,
             type: cc.SpriteFrame
         },
+        // 花色资源
         suits: {
             default: [],
             type: cc.SpriteFrame
         },
+        // 图案资源
         faces: {
             default: [],
             type: cc.SpriteFrame
         },
+        // 图案花色资源
+        // TODO 目前只是一个大的花色图案，之后需要变成真正的花色图案。
         contentsSuits: {
             default: [],
             type: cc.SpriteFrame
@@ -56,7 +65,6 @@ cc.Class({
         this.suit.spriteFrame = this.suits[card.suit - 1];
         // point
         this.point.string = PointEnum[card.point];
-        this.point.node.width = 300;
         if (card.isRedSuit) {
             //this.point.node.color = this.redColor;
         } else if(card.isBlackSuit) {
@@ -70,18 +78,15 @@ cc.Class({
         }
     },
 
-    show: function() {
-        this.suit.node.active = true;
-        this.point.node.active = true;
-        this.contents.node.active = true;
-        this.contents.spriteFrame = this.front;
-    },
-
-    hide: function() {
-        this.suit.node.active = false;
-        this.point.node.active = false;
-        this.contents.node.active = true;
-        this.contents.spriteFrame = this.back;
+    /**
+     * 翻牌
+     * @param {boolean} - faceUP: true, faceDown: false
+     */
+    reveal: function(isFaceUp) {
+        this.suit.node.active = isFaceUp;
+        this.point.node.active = isFaceUp;
+        this.contents.node.active = isFaceUp;
+        this.contents.spriteFrame = isFaceUp ? this.frontBG : this.backBG;
     },
 
     // use this for initialization

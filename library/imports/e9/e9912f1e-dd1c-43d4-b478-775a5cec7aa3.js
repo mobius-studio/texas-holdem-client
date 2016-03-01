@@ -8,11 +8,9 @@ cc.Class({
 
     properties: {
         id: '',
-        playerName: {
-            'default': null,
-            type: cc.Label
-        }
-
+        playerName: null,
+        gold: null,
+        profileID: null
     },
 
     // foo: {

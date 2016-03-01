@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "poker_bg",
+    "name": "front_bg",
     "texture": "7dfacbde-7356-4353-b8b2-f5bcfce33246",
     "atlas": "",
     "rect": [

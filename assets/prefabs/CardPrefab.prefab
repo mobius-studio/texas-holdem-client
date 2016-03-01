@@ -75,7 +75,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Contents",
+    "_name": "Suit",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -96,8 +96,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 64,
-      "height": 95
+      "width": 16,
+      "height": 16
     },
     "_children": [],
     "_rotationX": 0,
@@ -106,8 +106,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 6,
-      "y": -5.5
+      "x": -30,
+      "y": 25
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -136,7 +136,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "b58ea07e-0be4-4961-8309-f4b3dfe2a425"
+      "__uuid__": "863425de-7760-4da3-b09e-f37a5a328373"
     },
     "_type": 0,
     "_useOriginalSize": false,
@@ -148,7 +148,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "42ee6jWjR1Dx7z1xitHZuYp"
+    "fileId": "716a1/FgLZOPIsWv6r21cyo"
   },
   {
     "__type__": "cc.Node",
@@ -235,7 +235,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Suit",
+    "_name": "Contents",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -256,8 +256,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 16,
-      "height": 16
+      "width": 64,
+      "height": 95
     },
     "_children": [],
     "_rotationX": 0,
@@ -266,8 +266,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -30,
-      "y": 25
+      "x": 6,
+      "y": -5.5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -296,7 +296,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "863425de-7760-4da3-b09e-f37a5a328373"
+      "__uuid__": "b58ea07e-0be4-4961-8309-f4b3dfe2a425"
     },
     "_type": 0,
     "_useOriginalSize": false,
@@ -308,7 +308,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "716a1/FgLZOPIsWv6r21cyo"
+    "fileId": "42ee6jWjR1Dx7z1xitHZuYp"
   },
   {
     "__type__": "cc.Sprite",
@@ -334,20 +334,16 @@
     },
     "_enabled": true,
     "suit": {
-      "__id__": 9
+      "__id__": 3
     },
     "point": {
       "__id__": 6
     },
     "contents": {
-      "__id__": 3
+      "__id__": 9
     },
-    "front": {
-      "__uuid__": "bde43749-f993-4ba8-a942-bee84a860624"
-    },
-    "back": {
-      "__uuid__": "0e956ec9-938e-45d4-a07e-90afcd25340a"
-    },
+    "frontBG": null,
+    "backBG": null,
     "suits": [
       {
         "__uuid__": "00970fd1-975b-4332-9dd6-4e248f5558fb"

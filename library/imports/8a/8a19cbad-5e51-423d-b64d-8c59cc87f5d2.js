@@ -1,25 +1,28 @@
-"use strict";
+'use strict';
+
+var UserTypeEnum = require('UserTypeEnum');
 
 cc.Class({
-    "extends": cc.Component,
+    'extends': cc.Component,
 
     properties: {
-        suit: {
-            "default": null,
+        nickname: {
+            'default': null,
             type: cc.Label
         },
-        point: {
-            "default": null,
+        profile: {
+            'default': null,
+            type: cc.Sprite
+        },
+        chips: {
+            'default': null,
             type: cc.Label
         },
-        front: {
-            "default": null,
-            type: cc.Sprite
+        status: {
+            'default': null,
+            type: cc.Label
         },
-        back: {
-            "default": null,
-            type: cc.Sprite
-        }
+        userType: UserTypeEnum.Normal
     },
 
     // foo: {

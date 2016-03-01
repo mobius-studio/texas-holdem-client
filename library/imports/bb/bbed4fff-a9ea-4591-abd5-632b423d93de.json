@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "club_small",
+    "name": "club",
     "texture": "65ffe92d-7c92-4ab1-ad64-eddad7078a10",
     "atlas": "",
     "rect": [

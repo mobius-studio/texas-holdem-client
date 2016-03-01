@@ -1,6 +1,7 @@
 var DeckModule = require('DeckModule');
+var UserTypeEnum = require('UserTypeEnum');
 
-cc.Class({
+var Game = cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -14,10 +15,25 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        userPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         testNode: {
             default: null,
             type: cc.Node
-        }
+        },
+        gameBG: {
+            default: null,
+            type: cc.Sprite
+        },
+        users: {
+            default: [],
+            type: [cc.Node]
+        },
+        totalChips: 0,
+        numberOfDeck: 1,
+        bettingRound: 0,
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
@@ -29,11 +45,82 @@ cc.Class({
         // ...
     },
 
+    initDealer: function(UserPrefab) {
+        UserPrefab.setUserType(UserTypeEnum.Dealer);
+    },
+
+    initSmallBlind: function() {
+        UserPrefab.setUserType(UserTypeEnum.SmallBlind);
+    },
+
+    initBigBlind: function() {
+        UserPrefab.setUserType(UserTypeEnum.BigBlind);
+    },
+
+    createUsers: function() {
+        for (var i = 0; i < 8; i++) {
+            var userPrefab = cc.instantiate(this.userPrefab);
+            var userNode = this.users[i];
+            userPrefab.parent = userNode;
+            userPrefab.setPosition = cc.p(0, 0);
+            var UserPrefab = userPrefab.getComponent('UserPrefab');
+        }
+    },
+
+    createCards: function() {
+        var card = this.deck.deal();
+    },
+
+    // 第一轮下注
+    preflopBettingRound: function() {
+        
+    },
+
+    // 第二轮下注
+    flopBettingRound: function() {
+        
+    },
+
+    // 第三轮下注
+    thirdBettingRound: function() {
+        
+    },
+
+    // 第四轮下注
+    fourthBettingRound: function() {
+        
+    },
+
+    start: function() {
+        this.deck = new DeckModule(this.numberOfDeck);
+        this.deck.shuffle();
+    },
+
     // use this for initialization
     onLoad: function () {
-        console.log('Game starting... ');
-        this.deck = new DeckModule(1);
+        Game.instance = this;
+        // 初始化一副牌
+        this.deck = new DeckModule(this.numberOfDeck);
         this.deck.shuffle();
+    },
+
+    addStake: function() {
+        
+    },
+
+    // 洗牌
+    shuffle: function() {
+        this.deck.shuffle();
+    },
+
+    // 发牌
+    deal: function() {
+        var card = this.deck.deal();
+        
+    },
+
+    backToMenu: function() {
+        cc.director.loadScene('menu');
     },
 
     test: function() {
