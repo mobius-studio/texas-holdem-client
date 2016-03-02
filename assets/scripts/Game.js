@@ -17,6 +17,10 @@ cc.Class({
             default: null,
             type: cc.Node
         },
+        controlUI: {
+            default: null,
+            type: cc.Node
+        },
         // foo: {
         //    default: null,
         //    url: cc.Texture2D,  // optional, default is typeof default
@@ -70,9 +74,12 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         this.UserUI = this.userUI.getComponent('UserUI');
+        this.ControlUI = this.controlUI.getComponent('ControlUI');
     },
 
     start: function() {
+        // 初始化控制按钮
+        this.ControlUI.init();
         // 初始化用户
         this.UserUI.init();
         // 初始化一副牌
