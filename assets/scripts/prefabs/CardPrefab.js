@@ -60,6 +60,8 @@ cc.Class({
         this.suit.spriteFrame = this.suits[card.suit];
         // 设置卡牌的点数文字
         this.point.string = Point[card.point];
+        // 取得点数的Node组件
+        var Node = this.point.node.getComponent(cc.Node);
         if (card.isRedSuit) {
             this.point.node.color = this.redColor;;
         } else if(card.isBlackSuit) {
