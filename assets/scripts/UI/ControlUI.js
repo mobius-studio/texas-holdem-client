@@ -1,4 +1,3 @@
-var Round = require('Round');
 var ButtonType = require('ButtonType');
 
 cc.Class({
@@ -87,6 +86,10 @@ cc.Class({
     // 处理让牌
     handleCheck: function(e) {
         alert('Check Button Clicked.');
+    },
+
+    handleControlStatus: function(controlStatus) {
+        // TODO 通过controlStatus确认哪些按钮显示/隐藏
     },
 
     // use this for initialization
