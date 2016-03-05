@@ -2512,6 +2512,9 @@
     "playerPrefab": {
       "__uuid__": "60d47627-6159-4350-96b0-a5d9f1fffab8"
     },
+    "cardPrefab": {
+      "__uuid__": "bd51dcdb-e40a-49d1-a0e5-faefc4341eb3"
+    },
     "anthors": [
       {
         "__id__": 7
@@ -2540,7 +2543,8 @@
       {
         "__id__": 15
       }
-    ]
+    ],
+    "_Players": []
   },
   {
     "__type__": "cc.Node",

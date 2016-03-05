@@ -139,7 +139,7 @@
       "__uuid__": "863425de-7760-4da3-b09e-f37a5a328373"
     },
     "_type": 0,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_atlas": null
   },
   {
@@ -148,7 +148,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "18800BrrnVNNqBs5ksC0LeP"
+    "fileId": "dfa480pOIRKgrkXut63L9Wz"
   },
   {
     "__type__": "cc.Node",
@@ -231,7 +231,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "18ae8PfLl1DA5N6KJRb9j2a"
+    "fileId": "958fczAB89B0Z0qOBduWZmD"
   },
   {
     "__type__": "cc.Node",
@@ -331,7 +331,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "2f80fgcP45PbKYQipfUT0j3"
+    "fileId": "4ca62FonidC6J19wcK+69y0"
   },
   {
     "__type__": "cc.Sprite",
@@ -431,6 +431,6 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "1e131haRkVIX7/UWe4qv4Ha"
+    "fileId": "30699XhnE5O75I582f6zlZe"
   }
 ]
