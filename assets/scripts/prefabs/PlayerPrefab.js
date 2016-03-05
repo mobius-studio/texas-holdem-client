@@ -4,6 +4,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        playerBG: {
+            default: null,
+            type: cc.Sprite
+        },
         nickname: {
             default: null,
             type: cc.Label
@@ -15,6 +19,10 @@ cc.Class({
         profile: {
             default: null,
             type: cc.Sprite
+        },
+        type: {
+            default: null,
+            type: cc.Label
         },
         profiles: {
             default: [],
@@ -30,7 +38,23 @@ cc.Class({
         this.Chips.string = '$' + player.chips;
         this.Profile = this.profile.node.getComponent(cc.Sprite);
         this.Profile.spriteFrame = this.profiles[player.profileID];
+        this.Type = this.type.node.getComponent(cc.Label);
+        this.Type.string = '';
+        switch (player.playerType) {
+            case PlayerType.Dealer:
+                this.Type.string = '庄家';
+                break;
+            case PlayerType.SmallBlind:
+                this.Type.string = '小盲注';
+                break;
+            case PlayerType.BigBlind:
+                this.Type.string = '大盲注';
+                break;
+        }
         this.node.active = true;
+        if (!player.active) {
+            this.Type.string = '观战中';
+        }
     },
 
     // 销毁玩家

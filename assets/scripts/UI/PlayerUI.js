@@ -48,26 +48,43 @@ cc.Class({
         var Card = cardPrefab.getComponent('CardPrefab');
         Card.init(card);
         if (player.playerPosition == 4) {
+            // 庄家
+            if (player.cards.length == 1) {
+                this.action = cc.spawn(
+                    cc.scaleTo(0, 0.7),
+                    cc.rotateBy(0, -5),
+                    cc.moveTo(0, cc.p(120, 60))
+                );
+            } else {
+                this.action = cc.spawn(
+                    cc.scaleTo(0, 0.7),
+                    cc.rotateBy(0, 5),
+                    cc.moveTo(0, cc.p(135, 56))
+                );
+            }
             Card.reveal(true);
         } else {
+            if (player.cards.length == 1) {
+                this.action = cc.spawn(
+                    cc.scaleTo(0, 0.5),
+                    cc.rotateBy(0, -5),
+                    cc.moveTo(0, cc.p(120, 60))
+                );
+            } else {
+                this.action = cc.spawn(
+                    cc.scaleTo(0, 0.5),
+                    cc.rotateBy(0, 5),
+                    cc.moveTo(0, cc.p(135, 58))
+                );
+            }
             Card.reveal(false);
         }
+        cardPrefab.runAction(this.action);
         // 设置第二个手牌的位置偏右一些
         if (player.cards.length == 1) {
-            cardPrefab.setPosition(cc.p(50, 80));
+            //cardPrefab.setPosition(cc.p(50, 80));
         } else if (player.cards.length == 2) {
-            cardPrefab.setPosition(cc.p(75, 80));
-        }
-    },
-
-    // 下注
-    bet: function(player, chips) {
-        if (player.chips > chips) {
-            player.chips = player.chips - chips;
-            this._Players[player.playerPosition].init(player);
-        } else {
-            alert('玩家的筹码不足！');
-            return false;
+            //cardPrefab.setPosition(cc.p(75, 80));
         }
     },
 

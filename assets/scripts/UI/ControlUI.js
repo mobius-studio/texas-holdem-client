@@ -19,7 +19,8 @@ cc.Class({
         // ...
     },
 
-    init: function() {
+    init: function(gameUI) {
+        this.gameUI = gameUI;
         this.bindEvent();
     },
 
@@ -60,6 +61,7 @@ cc.Class({
 
     // 处理下注
     handleBet: function(e) {
+        this.gameServer.bet(this.gameUI.i, this.gameUI.bigBlind);
         alert('Bet Button Clicked.');
     },
 
@@ -80,6 +82,10 @@ cc.Class({
 
     // 处理跟注
     handleCall: function(e) {
+        console.log('this.gameServer.roundChips : ' + this.gameServer.roundChips);
+        console.log('this.gameUI.players[this.gameUI.i].roundChips : ' + this.gameUI.players[this.gameUI.i].roundChips);
+        var chips = this.gameServer.roundChips - this.gameUI.players[this.gameUI.i].roundChips;
+        this.gameServer.bet(this.gameUI.i, chips);
         alert('Call Button Clicked.');
     },
 
