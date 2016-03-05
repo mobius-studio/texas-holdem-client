@@ -2635,6 +2635,8 @@
       "__id__": 59
     },
     "_enabled": true,
+    "smallBlind": 5,
+    "bigBlind": 10,
     "playerUI": {
       "__id__": 60
     },

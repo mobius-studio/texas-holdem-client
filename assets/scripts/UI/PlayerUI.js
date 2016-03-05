@@ -49,10 +49,25 @@ cc.Class({
         Card.init(card);
         if (player.playerPosition == 4) {
             Card.reveal(true);
+        } else {
+            Card.reveal(false);
         }
         // 设置第二个手牌的位置偏右一些
-        if (player.playerCards.length == 2) {
-            cardPrefab.setPosition(cc.p(75, 65));
+        if (player.playerCards.length == 1) {
+            cardPrefab.setPosition(cc.p(50, 80));
+        } else if (player.playerCards.length == 2) {
+            cardPrefab.setPosition(cc.p(75, 80));
+        }
+    },
+
+    // 下注
+    bet: function(player, chips) {
+        if (player.playerChips > chips) {
+            player.playerChips = player.playerChips - chips;
+            this._Players[player.playerPosition].init(player);
+        } else {
+            alert('玩家的筹码不足！');
+            return false;
         }
     },
 
