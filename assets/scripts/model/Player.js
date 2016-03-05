@@ -19,6 +19,7 @@ var Player = cc.Class({
         playerType: null,
         // 玩家状态
         playerStatus: null,
+<<<<<<< HEAD
         // 玩家位置
         playerPosition: null,
         // 玩家手牌
@@ -26,6 +27,8 @@ var Player = cc.Class({
             default: [],
             type: [cc.Class]
         },
+=======
+>>>>>>> branch 'master' of ssh://github.com/mobius-studio/texas-holdem-client.git
     },
 
     // 字符串函数
