@@ -40,8 +40,8 @@ cc.Class({
     // 收底牌（每个玩家有两张底牌）
     receiveHoldCard: function(player, card) {
         // 添加卡牌到玩家的对象中
-        if (player.playerCards.length < 2) {
-            player.playerCards.push(card);
+        if (player.cards.length < 2) {
+            player.cards.push(card);
         }
         var cardPrefab = cc.instantiate(this.cardPrefab);
         cardPrefab.parent = this.anthors[player.playerPosition];
@@ -53,17 +53,17 @@ cc.Class({
             Card.reveal(false);
         }
         // 设置第二个手牌的位置偏右一些
-        if (player.playerCards.length == 1) {
+        if (player.cards.length == 1) {
             cardPrefab.setPosition(cc.p(50, 80));
-        } else if (player.playerCards.length == 2) {
+        } else if (player.cards.length == 2) {
             cardPrefab.setPosition(cc.p(75, 80));
         }
     },
 
     // 下注
     bet: function(player, chips) {
-        if (player.playerChips > chips) {
-            player.playerChips = player.playerChips - chips;
+        if (player.chips > chips) {
+            player.chips = player.chips - chips;
             this._Players[player.playerPosition].init(player);
         } else {
             alert('玩家的筹码不足！');

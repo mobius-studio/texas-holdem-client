@@ -27,9 +27,9 @@ cc.Class({
         this.Nickname = this.nickname.node.getComponent(cc.Label);
         this.Nickname.string = player.playerName;
         this.Chips = this.chips.node.getComponent(cc.Label);
-        this.Chips.string = '$' + player.playerChips;
+        this.Chips.string = '$' + player.chips;
         this.Profile = this.profile.node.getComponent(cc.Sprite);
-        this.Profile.spriteFrame = this.profiles[player.playerProfileID];
+        this.Profile.spriteFrame = this.profiles[player.profileID];
         this.node.active = true;
     },
 

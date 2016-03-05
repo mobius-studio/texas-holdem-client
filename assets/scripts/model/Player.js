@@ -12,17 +12,19 @@ var Player = cc.Class({
         // 玩家名称
         playerName: null,
         // 玩家筹码
-        playerChips: 0,
+        chips: 0,
         // 玩家头像号
-        playerProfileID: 0,
+        profileID: 0,
         // 玩家类型
         playerType: null,
         // 玩家状态
         playerStatus: null,
         // 玩家位置
         playerPosition: null,
+        // 玩家是否有效（本局游戏开始后进入游戏的玩家无效，只能观看游戏，下局开始后参与进来）
+        active: true,
         // 玩家手牌
-        playerCards: {
+        cards: {
             default: [],
             type: [cc.Class]
         },
@@ -33,8 +35,8 @@ var Player = cc.Class({
         var array = [];
         array.push(this.playerID);
         array.push(this.playerName);
-        array.push(this.playerChips);
-        array.push(this.playerProfileID);
+        array.push(this.chips);
+        array.push(this.profileID);
         array.push(this.playerType);
         array.push(this.playerStatus);
         return array.join('_');
