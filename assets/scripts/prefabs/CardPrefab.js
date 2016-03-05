@@ -1,7 +1,10 @@
 var Suit = require('Suit');
 var Point = require('Point');
-var CardModule = require('CardModule');
 
+/**
+ * 卡牌预制资源
+ * @class
+ */
 cc.Class({
     extends: cc.Component,
 
@@ -49,31 +52,25 @@ cc.Class({
         },
         redColor: cc.Color.RED,
         blackColor: cc.Color.BLACK,
-        // foo: {
-        //    default: null,
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
     },
 
+    // 初始化一个卡牌组件
     init: function(card) {
-        // suit
+        // 设置卡牌的花色图片
         this.suit.spriteFrame = this.suits[card.suit];
-        // point
+        // 设置卡牌的点数文字
         this.point.string = Point[card.point];
         if (card.isRedSuit) {
-            //this.point.node.color = this.redColor;
+            this.point.node.color = this.redColor;;
         } else if(card.isBlackSuit) {
-            //this.point.node.color = this.blackColor;
+            this.point.node.color = this.blackColor;;
         }
-        // contents
+        // 设置正面图案
         if (card.point > 10) {
+            // 设置J，Q，K的正面图案
             this.contents.spriteFrame = this.faces[card.point - 10 - 1];
         } else {
+            // 设置A~10的正面图案
             this.contents.spriteFrame = this.contentsSuits[card.suit];
         }
     },

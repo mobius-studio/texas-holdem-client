@@ -63,14 +63,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 12
       },
       {
-        "__id__": 12
+        "__id__": 13
       }
     ],
     "_prefab": {
-      "__id__": 13
+      "__id__": 14
     }
   },
   {
@@ -106,7 +106,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -30,
+      "x": -32,
       "y": 25
     },
     "_skewX": 0,
@@ -148,7 +148,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "407bccOEMJP0Jbeoot+5BuF"
+    "fileId": "18800BrrnVNNqBs5ksC0LeP"
   },
   {
     "__type__": "cc.Node",
@@ -183,7 +183,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -30,
+      "x": -32,
       "y": 48
     },
     "_skewX": 0,
@@ -231,7 +231,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "f5140S6YulGKoTlIehKstPP"
+    "fileId": "18ae8PfLl1DA5N6KJRb9j2a"
   },
   {
     "__type__": "cc.Node",
@@ -281,10 +281,13 @@
     "_components": [
       {
         "__id__": 9
+      },
+      {
+        "__id__": 10
       }
     ],
     "_prefab": {
-      "__id__": 10
+      "__id__": 11
     }
   },
   {
@@ -299,8 +302,28 @@
       "__uuid__": "b58ea07e-0be4-4961-8309-f4b3dfe2a425"
     },
     "_type": 0,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_atlas": null
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 8
+    },
+    "_enabled": true,
+    "_alignFlags": 36,
+    "_left": 0,
+    "_right": 12,
+    "_top": 0,
+    "_bottom": 12,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -308,7 +331,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "8a418Y+LeZBuq3dIRaMo4+7"
+    "fileId": "2f80fgcP45PbKYQipfUT0j3"
   },
   {
     "__type__": "cc.Sprite",
@@ -389,9 +412,9 @@
     ],
     "redColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 0,
-      "b": 0,
+      "r": 202,
+      "g": 5,
+      "b": 5,
       "a": 255
     },
     "blackColor": {
@@ -408,6 +431,6 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "fc76cZPoqdDk5Ak3EegXQcx"
+    "fileId": "1e131haRkVIX7/UWe4qv4Ha"
   }
 ]
